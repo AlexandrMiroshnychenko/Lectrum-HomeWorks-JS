@@ -32,6 +32,23 @@ const array = [
 
 
 // Решение
+const inspect = function (array){
+
+  if(arguments.length !== 1){
+    throw new Error('function must include 1 argument')
+  } else if (!Array.isArray(array)){
+    throw new Error('argument must be an array');
+  }
+
+  let filteredArray = array.filter(function (value) {
+    return typeof value === 'string'
+  })
+
+
+  return filteredArray.map(function(current, i, array){
+    return current.length;
+  })
+};
 
 const result = inspect(array);
 console.log(result); // [ 7, 11, 7, 12 ]

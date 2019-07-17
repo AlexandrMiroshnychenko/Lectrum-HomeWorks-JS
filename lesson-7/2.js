@@ -21,6 +21,31 @@
 
 // Решение
 
+let collect = function(array){
+  if(arguments.length !== 1){
+    throw new Error('function must include only one argument');
+  } else if (!Array.isArray(array)){
+    throw new Error('${array} - must be an array');
+  };
+
+  let a = array.join(',').split(',');
+
+  let b = a.map(function(current, i, array){
+    return current = +current;
+  });
+
+  b.forEach(function (current, i, array) {
+    if(typeof current !== number){
+      throw new Error('array must include only numbers');
+    }
+  });
+
+  return b.reduce(function(acc, current, i, array){
+    return acc = +current + acc;
+  }, 0);
+
+};
+
 const array1 = [[[1, 2], [1, 2]], [[2, 1], [1, 2]]];
 console.log(collect(array1)); // 12
 

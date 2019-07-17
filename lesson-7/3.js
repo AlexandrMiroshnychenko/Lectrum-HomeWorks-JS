@@ -13,6 +13,27 @@
 
 // Решение
 
+var createArray = function(element, length){
+
+  if(arguments.length !== 2){
+    throw new Error(`function must include 2 arguments`);
+  } else if (typeof length !== "number"){
+    throw new Error(`${length} this argument must be a number`);
+  };
+
+  if(typeof element === "number" ||
+    typeof element === "string" ||
+    typeof element === "object" ||
+    Array.isArray(element) === true){
+
+    return Array(length).fill(element);
+
+  } else {
+    throw new Error(`${element} may be: number, string, object or array`);
+  };
+
+};
+
 const result = createArray('x', 5);
 
 console.log(result); // [ x, x, x, x, x ]
